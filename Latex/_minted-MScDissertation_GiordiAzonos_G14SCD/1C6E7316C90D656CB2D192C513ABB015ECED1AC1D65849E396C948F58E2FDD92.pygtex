@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{numpy} \PYG{k+kn}{import} \PYG{n}{array}
+
+\PYG{k}{def} \PYG{n+nf}{getWeightsAndPoints}\PYG{p}{(}\PYG{n}{n}\PYG{p}{):}
+	\PYG{k}{if} \PYG{p}{(}\PYG{n}{n} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{):}
+		\PYG{n}{xw}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{]}
+	\PYG{k}{elif} \PYG{p}{(}\PYG{n}{n} \PYG{o}{==} \PYG{l+m+mi}{2}\PYG{p}{):}
+		\PYG{n}{xw}\PYG{o}{=}\PYG{p}{[[}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{],}
+			\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{],}
+			\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{6}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{]]}
+	\PYG{k}{elif} \PYG{p}{(}\PYG{n}{n} \PYG{o}{==} \PYG{l+m+mi}{3}\PYG{p}{):}
+		\PYG{n}{xw}\PYG{o}{=}\PYG{p}{[[}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{27}\PYG{o}{/}\PYG{l+m+mi}{48}\PYG{p}{],}
+			\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{o}{/}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{o}{/}\PYG{l+m+mi}{48}\PYG{p}{],}
+			\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{o}{/}\PYG{l+m+mi}{48}\PYG{p}{],}
+			\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{o}{/}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{o}{/}\PYG{l+m+mi}{5}\PYG{p}{,} \PYG{l+m+mi}{25}\PYG{o}{/}\PYG{l+m+mi}{48}\PYG{p}{]]}
+	\PYG{k}{elif} \PYG{p}{(}\PYG{n}{n} \PYG{o}{==} \PYG{l+m+mi}{4}\PYG{p}{):}
+		\PYG{n}{xw}\PYG{o}{=}\PYG{p}{[[}\PYG{l+m+mf}{0.44594849091597}\PYG{p}{,} \PYG{l+m+mf}{0.44594849091597}\PYG{p}{,} \PYG{l+m+mf}{0.22338158967801}\PYG{p}{],}
+			\PYG{p}{[}\PYG{l+m+mf}{0.44594849091597}\PYG{p}{,} \PYG{l+m+mf}{0.10810301816807}\PYG{p}{,} \PYG{l+m+mf}{0.22338158967801}\PYG{p}{],}
+			\PYG{p}{[}\PYG{l+m+mf}{0.10810301816807}\PYG{p}{,} \PYG{l+m+mf}{0.44594849091597}\PYG{p}{,} \PYG{l+m+mf}{0.22338158967801}\PYG{p}{],}
+			\PYG{p}{[}\PYG{l+m+mf}{0.09157621350977}\PYG{p}{,} \PYG{l+m+mf}{0.09157621350977}\PYG{p}{,} \PYG{l+m+mf}{0.10995174365532}\PYG{p}{],}
+			\PYG{p}{[}\PYG{l+m+mf}{0.09157621350977}\PYG{p}{,} \PYG{l+m+mf}{0.81684757298046}\PYG{p}{,} \PYG{l+m+mf}{0.10995174365532}\PYG{p}{],}
+			\PYG{p}{[}\PYG{l+m+mf}{0.81684757298046}\PYG{p}{,} \PYG{l+m+mf}{0.09157621350977}\PYG{p}{,} \PYG{l+m+mf}{0.10995174365532}\PYG{p}{]]}
+	\PYG{k}{else}\PYG{p}{:}
+	\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Haven\PYGZsq{}t computed points for that degree.\PYGZdq{}}\PYG{p}{)}
+	\PYG{n}{xw} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{)}
+
+	\PYG{k}{return} \PYG{n}{array}\PYG{p}{(}\PYG{n}{xw}\PYG{p}{)}
+\end{Verbatim}

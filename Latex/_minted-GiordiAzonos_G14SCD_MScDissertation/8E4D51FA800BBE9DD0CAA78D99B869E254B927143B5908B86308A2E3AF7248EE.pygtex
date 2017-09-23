@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Visualize interior points}
+\PYG{n}{visualize} \PYG{o}{=} \PYG{n+nb+bp}{False} \PYG{c+c1}{\PYGZsh{} Change flag if you want to visualize the mesh with interior points}
+\PYG{k}{if}\PYG{p}{(}\PYG{n}{visualize}\PYG{p}{):}
+	\PYG{n}{fig2} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize} \PYG{o}{=} \PYG{p}{(}\PYG{l+m+mi}{9}\PYG{p}{,}\PYG{l+m+mi}{6}\PYG{p}{))}
+	\PYG{n}{fig2}\PYG{o}{.}\PYG{n}{suptitle}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Triangulated Mesh with \PYGZdq{}} \PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{Ng}\PYG{p}{)}\PYG{o}{+}\PYG{l+s+s2}{\PYGZdq{} Interior Gauss Points\PYGZdq{}}\PYG{p}{)}
+	\PYG{n}{ax} \PYG{o}{=} \PYG{n}{fig2}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{111}\PYG{p}{)}
+	\PYG{n}{ax}\PYG{o}{.}\PYG{n}{triplot}\PYG{p}{(}\PYG{n}{mesh\PYGZus{}pts}\PYG{p}{[:,} \PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{mesh\PYGZus{}pts}\PYG{p}{[:,} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{elems}\PYG{p}{)}
+	\PYG{k}{for} \PYG{n}{p} \PYG{o+ow}{in} \PYG{n}{xs}\PYG{p}{:}
+		\PYG{n}{ax}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{([}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]],[}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]],} \PYG{l+s+s1}{\PYGZsq{}r.\PYGZsq{}}\PYG{p}{)}
+	\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}x\PYGZdq{}}\PYG{p}{)}
+	\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}y\PYGZdq{}}\PYG{p}{)}
+	\PYG{n}{fig2}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Mesh With \PYGZdq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{Ng}\PYG{p}{)}\PYG{o}{+}\PYG{l+s+s2}{\PYGZdq{} Interior Points\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

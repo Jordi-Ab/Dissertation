@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Assemble Synaptic Matrix}
+\PYG{n}{wts\PYGZus{}o} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{outer}\PYG{p}{(}\PYG{n}{As}\PYG{o}{.}\PYG{n}{T}\PYG{p}{,} \PYG{n}{weights}\PYG{p}{)}
+\PYG{n}{rhos} \PYG{o}{=} \PYG{n}{wts\PYGZus{}o}\PYG{o}{.}\PYG{n}{flatten}\PYG{p}{()}
+
+\PYG{n}{W} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{((}\PYG{n}{N}\PYG{p}{,}\PYG{n}{N}\PYG{p}{))}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{N}\PYG{p}{):}
+	\PYG{n}{x\PYGZus{}pt} \PYG{o}{=} \PYG{n}{xs}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}
+	\PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,} \PYG{n}{N}\PYG{p}{):}
+		\PYG{n}{y\PYGZus{}pt} \PYG{o}{=} \PYG{n}{xs}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+		\PYG{n}{x}\PYG{p}{,} \PYG{n}{y} \PYG{o}{=} \PYG{n}{x\PYGZus{}pt}\PYG{o}{\PYGZhy{}}\PYG{n}{y\PYGZus{}pt}
+		\PYG{n}{W}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{kernel}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Copy upper triangular part to lower triangular part}
+\PYG{n}{i\PYGZus{}lower} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{tril\PYGZus{}indices}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{W}\PYG{p}{[}\PYG{n}{i\PYGZus{}lower}\PYG{p}{]} \PYG{o}{=} \PYG{n}{W}\PYG{o}{.}\PYG{n}{T}\PYG{p}{[}\PYG{n}{i\PYGZus{}lower}\PYG{p}{]}
+
+\PYG{c+c1}{\PYGZsh{} Multiply times the weights}
+\PYG{n}{W} \PYG{o}{*=} \PYG{n}{rhos}
+\PYG{k}{del} \PYG{n}{rhos} \PYG{c+c1}{\PYGZsh{} delete to free memory}
+\end{Verbatim}

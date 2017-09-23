@@ -1,0 +1,40 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Neural Field Modelling}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Single Neurons and Synapses}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Modelling the average behaviour of neurons}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{Survey of Numerical Methods}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Projection Methods}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Nystr\366m Method}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.3}{Fast Fourier Transform Methods}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.4}{PDE Methods}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{The 1D Model}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{Nystr\366m Discretization in 1D}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Results}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{The 2D Model}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{Nystr\366m Discretization in 2D}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.2}{Computational Implementation}{section.5}% 15
+\BOOKMARK [2][-]{subsection.5.3}{Numerical Experiments}{section.5}% 16
+\BOOKMARK [2][-]{subsection.5.4}{Results}{section.5}% 17
+\BOOKMARK [1][-]{section.6}{The 2D Model on a Triangulated Mesh}{}% 18
+\BOOKMARK [2][-]{subsection.6.1}{Gaussian Quadrature on Triangular Elements}{section.6}% 19
+\BOOKMARK [2][-]{subsection.6.2}{Gaussian Quadrature on a Triangulated Mesh}{section.6}% 20
+\BOOKMARK [2][-]{subsection.6.3}{Nystr\366m Discretization on a Triangulated Mesh}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.4}{Computational Implementation}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.5}{Numerical Experiments}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.6}{Results}{section.6}% 24
+\BOOKMARK [1][-]{section.7}{The 2D Model with Adaptation}{}% 25
+\BOOKMARK [2][-]{subsection.7.1}{Fast Fourier Transform}{section.7}% 26
+\BOOKMARK [2][-]{subsection.7.2}{FFT Results}{section.7}% 27
+\BOOKMARK [2][-]{subsection.7.3}{Nystr\366m on a Triangulated Mesh}{section.7}% 28
+\BOOKMARK [2][-]{subsection.7.4}{Triangulated Mesh Results}{section.7}% 29
+\BOOKMARK [1][-]{section.8}{Jupyter Notebook}{}% 30
+\BOOKMARK [2][-]{subsection.8.1}{2D Model in a Triangulated Mesh}{section.8}% 31
+\BOOKMARK [1][-]{section.9}{Conclusions}{}% 32
+\BOOKMARK [1][-]{appendix.A}{Appendix Code}{}% 33
+\BOOKMARK [2][-]{subsection.A.1}{Connectivity Kernel Class}{appendix.A}% 34
+\BOOKMARK [2][-]{subsection.A.2}{Firing Rate Class}{appendix.A}% 35
+\BOOKMARK [2][-]{subsection.A.3}{Neural Field Class}{appendix.A}% 36
+\BOOKMARK [2][-]{subsection.A.4}{Neural Field With Adaptation Class}{appendix.A}% 37
+\BOOKMARK [2][-]{subsection.A.5}{Initial Conditions Class}{appendix.A}% 38
+\BOOKMARK [2][-]{subsection.A.6}{Gaussian Quadrature on Triangulated Mesh}{appendix.A}% 39
+\BOOKMARK [2][-]{subsection.A.7}{Gaussian Weights and Points on Triangular Element}{appendix.A}% 40

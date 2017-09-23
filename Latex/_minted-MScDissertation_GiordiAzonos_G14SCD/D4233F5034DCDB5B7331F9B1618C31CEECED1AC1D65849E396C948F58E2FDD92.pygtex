@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Np} \PYG{o}{=} \PYG{l+m+mi}{2} \PYG{c+c1}{\PYGZsh{} Degree of precision}
+
+\PYG{n}{gwp} \PYG{o}{=} \PYG{n}{Qtri}\PYG{o}{.}\PYG{n}{getWeightsAndPoints}\PYG{p}{(}\PYG{n}{Np}\PYG{p}{)}
+
+\PYG{n}{x\PYGZus{}hat} \PYG{o}{=} \PYG{n}{gwp}\PYG{p}{[:,}\PYG{l+m+mi}{0}\PYG{p}{]}
+\PYG{n}{y\PYGZus{}hat} \PYG{o}{=} \PYG{n}{gwp}\PYG{p}{[:,}\PYG{l+m+mi}{1}\PYG{p}{]}
+\PYG{n}{weights} \PYG{o}{=} \PYG{n}{gwp}\PYG{p}{[:,}\PYG{l+m+mi}{2}\PYG{p}{]}
+
+\PYG{n}{Ng} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{weights}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Number of Gauss interior points.}
+
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}x\PYGZus{}hat = \PYGZdq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{x\PYGZus{}hat}\PYG{p}{))}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}y\PYGZus{}hat = \PYGZdq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{y\PYGZus{}hat}\PYG{p}{))}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}wgts = \PYGZdq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{weights}\PYG{p}{))}
+\end{Verbatim}

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Initialize Connectivity Kernel}
+\PYG{n}{b} \PYG{o}{=} \PYG{l+m+mf}{0.4}
+\PYG{n}{kernel} \PYG{o}{=} \PYG{n}{ck}\PYG{o}{.}\PYG{n}{ConnectivityKernel2}\PYG{p}{(}\PYG{n}{b}\PYG{p}{)}
+\end{Verbatim}

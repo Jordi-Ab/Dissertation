@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{computeF}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{f\PYGZus{}rate}\PYG{p}{,} \PYG{n}{W}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{	Function: computeF}
+\PYG{l+s+sd}{	\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{l+s+sd}{	One evaluation of the right hand side.}
+\PYG{l+s+sd}{	Receives:}
+\PYG{l+s+sd}{		u: current state vector to evaluate at}
+\PYG{l+s+sd}{		W: pre\PYGZhy{}built synaptic matrix}
+\PYG{l+s+sd}{		f\PYGZus{}rate: callable firing rate function}
+\PYG{l+s+sd}{	\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+	\PYG{n}{f\PYGZus{}u} \PYG{o}{=} \PYG{n}{f\PYGZus{}rate}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Evaluate firing rate function at the vector u}
+	\PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{n}{u} \PYG{o}{+} \PYG{n}{W}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{f\PYGZus{}u}\PYG{p}{)}
+\end{Verbatim}

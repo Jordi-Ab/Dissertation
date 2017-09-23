@@ -1,0 +1,92 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{from} \PYG{n+nn}{GaussWeightsPoints} \PYG{k+kn}{import} \PYG{n}{getWeightsAndPoints}
+\PYG{k+kn}{from} \PYG{n+nn}{meshtools} \PYG{k+kn}{import} \PYG{o}{*}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k+kn}{as} \PYG{n+nn}{pt}
+\PYG{k+kn}{from} \PYG{n+nn}{mpl\PYGZus{}toolkits.mplot3d} \PYG{k+kn}{import} \PYG{n}{Axes3D}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib.pyplot} \PYG{k+kn}{as} \PYG{n+nn}{pt}
+
+\PYG{c+c1}{\PYGZsh{} Nodal Basis Functions for Mapping points in a canonical}
+\PYG{c+c1}{\PYGZsh{} reference element to an element in the mesh.}
+\PYG{n}{N1} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{x\PYGZus{}hat}\PYG{p}{,} \PYG{n}{y\PYGZus{}hat}\PYG{p}{:} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{x\PYGZus{}hat} \PYG{o}{\PYGZhy{}} \PYG{n}{y\PYGZus{}hat}
+\PYG{n}{N2} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{x\PYGZus{}hat}\PYG{p}{,} \PYG{n}{y\PYGZus{}hat}\PYG{p}{:} \PYG{n}{x\PYGZus{}hat}
+\PYG{n}{N3} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{x\PYGZus{}hat}\PYG{p}{,} \PYG{n}{y\PYGZus{}hat}\PYG{p}{:} \PYG{n}{y\PYGZus{}hat}
+
+\PYG{c+c1}{\PYGZsh{} Function that maps any point in the element K using its vertices and}
+\PYG{c+c1}{\PYGZsh{} the coordinates of that point inside a reference triangle}
+\PYG{k}{def} \PYG{n+nf}{mapX}\PYG{p}{(}\PYG{n}{v1}\PYG{p}{,} \PYG{n}{v2}\PYG{p}{,} \PYG{n}{v3}\PYG{p}{,} \PYG{n}{x\PYGZus{}hat}\PYG{p}{,} \PYG{n}{y\PYGZus{}hat}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{	v1, v2, v3 are lists containing x and y}
+\PYG{l+s+sd}{	i.e. v1 = [x1, y1],}
+\PYG{l+s+sd}{	and represent the vertices of a triangular element.}
+\PYG{l+s+sd}{	x\PYGZus{}hat is the x value of a point inside the refernce triangle}
+\PYG{l+s+sd}{	y\PYGZus{}hat is the y value of a point inside the reference triangle}
+\PYG{l+s+sd}{	\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+	\PYG{c+c1}{\PYGZsh{} Map gauss points inside the triangle using the Nodal Basis Functions}
+	\PYG{n}{x} \PYG{o}{=} \PYG{n}{v1}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{*}\PYG{n}{N1}\PYG{p}{(}\PYG{n}{x\PYGZus{}hat}\PYG{p}{,} \PYG{n}{y\PYGZus{}hat}\PYG{p}{)} \PYG{o}{+} \PYG{n}{v2}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{*}\PYG{n}{N2}\PYG{p}{(}\PYG{n}{x\PYGZus{}hat}\PYG{p}{,} \PYG{n}{y\PYGZus{}hat}\PYG{p}{)} \PYG{o}{+} \PYG{n}{v3}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{*}\PYG{n}{N3}\PYG{p}{(}\PYG{n}{x\PYGZus{}hat}\PYG{p}{,} \PYG{n}{y\PYGZus{}hat}\PYG{p}{)}
+	\PYG{n}{y} \PYG{o}{=} \PYG{n}{v1}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{*}\PYG{n}{N1}\PYG{p}{(}\PYG{n}{x\PYGZus{}hat}\PYG{p}{,} \PYG{n}{y\PYGZus{}hat}\PYG{p}{)} \PYG{o}{+} \PYG{n}{v2}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{*}\PYG{n}{N2}\PYG{p}{(}\PYG{n}{x\PYGZus{}hat}\PYG{p}{,} \PYG{n}{y\PYGZus{}hat}\PYG{p}{)} \PYG{o}{+} \PYG{n}{v3}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{*}\PYG{n}{N3}\PYG{p}{(}\PYG{n}{x\PYGZus{}hat}\PYG{p}{,} \PYG{n}{y\PYGZus{}hat}\PYG{p}{)}
+	\PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{])}
+
+\PYG{k}{def} \PYG{n+nf}{computeArea}\PYG{p}{(}\PYG{n}{v1}\PYG{p}{,} \PYG{n}{v2}\PYG{p}{,} \PYG{n}{v3}\PYG{p}{):}
+	\PYG{n}{x1}\PYG{p}{,} \PYG{n}{y1} \PYG{o}{=} \PYG{n}{v1}\PYG{p}{;} \PYG{n}{x2}\PYG{p}{,} \PYG{n}{y2} \PYG{o}{=} \PYG{n}{v2}\PYG{p}{;} \PYG{n}{x3}\PYG{p}{,} \PYG{n}{y3} \PYG{o}{=} \PYG{n}{v3}\PYG{p}{;}
+	\PYG{n}{A} \PYG{o}{=} \PYG{n+nb}{abs}\PYG{p}{(} \PYG{n}{x1}\PYG{o}{*}\PYG{p}{(}\PYG{n}{y2}\PYG{o}{\PYGZhy{}}\PYG{n}{y3}\PYG{p}{)} \PYG{o}{+} \PYG{n}{x2}\PYG{o}{*}\PYG{p}{(}\PYG{n}{y3}\PYG{o}{\PYGZhy{}}\PYG{n}{y1}\PYG{p}{)} \PYG{o}{+} \PYG{n}{x3}\PYG{o}{*}\PYG{p}{(}\PYG{n}{y1}\PYG{o}{\PYGZhy{}}\PYG{n}{y2}\PYG{p}{)} \PYG{p}{)}\PYG{o}{/}\PYG{l+m+mf}{2.0}
+	\PYG{k}{return} \PYG{n}{A}
+
+\PYG{k}{def} \PYG{n+nf}{gaussIntTriangle}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,} \PYG{n}{N\PYGZus{}point}\PYG{p}{,} \PYG{n}{v1}\PYG{p}{,} \PYG{n}{v2}\PYG{p}{,} \PYG{n}{v3}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{	Evaluates \PYGZbs{}int \PYGZbs{}int\PYGZus{}K f(x,y) dxdy}
+\PYG{l+s+sd}{	using a Gaussian Quadrature of order N,}
+\PYG{l+s+sd}{	where K is a triangle with vertices at}
+\PYG{l+s+sd}{	v1,v2,v3.}
+\PYG{l+s+sd}{	Each vertex v is a 2D array containing}
+\PYG{l+s+sd}{	its x and y coordinates. i.e.}
+\PYG{l+s+sd}{	v = [x, y]}
+\PYG{l+s+sd}{	\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+	\PYG{n}{xw} \PYG{o}{=} \PYG{n}{getWeightsAndPoints}\PYG{p}{(}\PYG{n}{N\PYGZus{}point}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Get quadrature points and weights.}
+
+	\PYG{c+c1}{\PYGZsh{}Calculate the area of the Triangle.}
+	\PYG{n}{A} \PYG{o}{=} \PYG{n}{computeArea}\PYG{p}{(}\PYG{n}{v1}\PYG{p}{,}\PYG{n}{v2}\PYG{p}{,}\PYG{n}{v3}\PYG{p}{)}
+
+	\PYG{c+c1}{\PYGZsh{} Weights and points on the reference triangle}
+	\PYG{n}{x\PYGZus{}hat} \PYG{o}{=} \PYG{n}{xw}\PYG{p}{[:,}\PYG{l+m+mi}{0}\PYG{p}{]}
+	\PYG{n}{y\PYGZus{}hat} \PYG{o}{=} \PYG{n}{xw}\PYG{p}{[:,}\PYG{l+m+mi}{1}\PYG{p}{]}
+	\PYG{n}{weights} \PYG{o}{=} \PYG{n}{xw}\PYG{p}{[:,}\PYG{l+m+mi}{2}\PYG{p}{]}
+
+	\PYG{c+c1}{\PYGZsh{} number of Gauss points}
+	\PYG{n}{np} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{weights}\PYG{p}{)}
+
+	\PYG{n}{result} \PYG{o}{=} \PYG{l+m+mi}{0}
+	\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{np}\PYG{p}{):}
+	\PYG{c+c1}{\PYGZsh{} Map interior points to the element.}
+		\PYG{n}{x}\PYG{p}{,} \PYG{n}{y} \PYG{o}{=} \PYG{n}{mapX}\PYG{p}{(}\PYG{n}{v1}\PYG{p}{,}\PYG{n}{v2}\PYG{p}{,}\PYG{n}{v3}\PYG{p}{,} \PYG{n}{x\PYGZus{}hat}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{y\PYGZus{}hat}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+		\PYG{n}{result} \PYG{o}{+=} \PYG{n}{f}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{)}\PYG{o}{*}\PYG{n}{weights}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}
+
+	\PYG{n}{result} \PYG{o}{*=} \PYG{n}{A}
+	\PYG{k}{return} \PYG{n}{result}
+
+\PYG{k}{def} \PYG{n+nf}{main}\PYG{p}{():}
+
+	\PYG{c+c1}{\PYGZsh{} Create triangulated mesh}
+	\PYG{n}{edge\PYGZus{}length} \PYG{o}{=} \PYG{l+m+mf}{0.3}
+	\PYG{n}{p}\PYG{p}{,} \PYG{n}{v} \PYG{o}{=} \PYG{n}{RectangleSegments}\PYG{p}{([}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{],[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{],} \PYG{n}{edge\PYGZus{}length}\PYG{o}{=}\PYG{n}{edge\PYGZus{}length}\PYG{p}{)}
+	\PYG{n}{mesh\PYGZus{}pts}\PYG{p}{,} \PYG{n}{elems} \PYG{o}{=} \PYG{n}{DoTriMesh}\PYG{p}{(}\PYG{n}{p}\PYG{p}{,} \PYG{n}{v}\PYG{p}{,} \PYG{n}{edge\PYGZus{}length}\PYG{p}{)}
+
+	\PYG{c+c1}{\PYGZsh{} Function to integrate over}
+	\PYG{k}{def} \PYG{n+nf}{f}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{):} \PYG{k}{return} \PYG{n}{x}\PYG{o}{**}\PYG{l+m+mi}{2} \PYG{o}{+} \PYG{n}{y}\PYG{o}{**}\PYG{l+m+mi}{2}
+
+	\PYG{c+c1}{\PYGZsh{} Compute Integral over the T mesh}
+	\PYG{n}{N} \PYG{o}{=} \PYG{l+m+mi}{2} \PYG{c+c1}{\PYGZsh{} Point rule of the Quadrature}
+	\PYG{n}{S} \PYG{o}{=} \PYG{l+m+mi}{0}
+	\PYG{c+c1}{\PYGZsh{} Iterate through each element}
+	\PYG{k}{for} \PYG{n}{i}\PYG{p}{,} \PYG{n}{elem} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n}{elems}\PYG{p}{):}
+		\PYG{c+c1}{\PYGZsh{} Get vertices of the element}
+		\PYG{n}{v1}\PYG{p}{,}\PYG{n}{v2}\PYG{p}{,}\PYG{n}{v3} \PYG{o}{=} \PYG{n}{mesh\PYGZus{}pts}\PYG{p}{[}\PYG{n}{elem}\PYG{p}{]}
+		\PYG{c+c1}{\PYGZsh{} Compute the integral of each element.}
+		\PYG{n}{S} \PYG{o}{+=} \PYG{n}{gaussIntTriangle}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,} \PYG{n}{N}\PYG{p}{,} \PYG{n}{v1}\PYG{p}{,} \PYG{n}{v2}\PYG{p}{,} \PYG{n}{v3}\PYG{p}{)}
+
+	\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Result: \PYGZdq{}} \PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{S}\PYG{p}{))}
+	\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Error: \PYGZdq{}} \PYG{o}{+} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{S} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{128}\PYG{o}{/}\PYG{l+m+mi}{3}\PYG{p}{))}
+
+\PYG{k}{if} \PYG{n}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}\PYGZdq{}}\PYG{p}{:} \PYG{n}{main}\PYG{p}{()}
+\end{Verbatim}

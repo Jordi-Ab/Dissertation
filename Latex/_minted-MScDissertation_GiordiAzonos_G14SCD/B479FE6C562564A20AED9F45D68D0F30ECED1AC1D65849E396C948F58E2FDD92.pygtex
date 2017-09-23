@@ -1,0 +1,69 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{Various choices for Connectivity Kernels.}
+\PYG{l+s+sd}{They are callable objects and work for 1D or 2D cases.}
+
+\PYG{l+s+sd}{1D Example:}
+\PYG{l+s+sd}{kernel = ConnectivityKernel1(b=0.1)}
+\PYG{l+s+sd}{x=1}
+\PYG{l+s+sd}{result = kernel(x)}
+
+\PYG{l+s+sd}{2D Example:}
+\PYG{l+s+sd}{kernel = ConnectivityKernel1(b=0.1)}
+\PYG{l+s+sd}{x=1; y=2}
+\PYG{l+s+sd}{result = kernel(x,y)}
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+
+\PYG{k}{class} \PYG{n+nc}{AbstractConnectivityKernel}\PYG{p}{:}
+	\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{	AbstractConnectivityKernel Object}
+\PYG{l+s+sd}{	\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{l+s+sd}{	Encapsulates the Parameters of the Connectivity Kernel function for a}
+\PYG{l+s+sd}{	Neural Field Integral model.}
+\PYG{l+s+sd}{	\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+	\PYG{k}{def} \PYG{n+nf}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{b}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{):}
+		\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{		Constructor}
+\PYG{l+s+sd}{		\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{l+s+sd}{		Receives:}
+\PYG{l+s+sd}{			b \PYGZhy{}\PYGZgt{} Parameter that controls the decay rate of}
+\PYG{l+s+sd}{				the Connectivity Kernel.}
+\PYG{l+s+sd}{				b=1 by default (when no decay parameter).}
+\PYG{l+s+sd}{		\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b} \PYG{o}{=} \PYG{n}{b}
+
+\PYG{k}{class} \PYG{n+nc}{ConnectivityKernel1}\PYG{p}{(}\PYG{n}{AbstractConnectivityKernel}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{	ConnectivityKernel1 Object \PYGZdq{}Wizard Hat\PYGZdq{}}
+\PYG{l+s+sd}{	\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{l+s+sd}{	Inherits data from AbstractConnectivityKernel}
+\PYG{l+s+sd}{	\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+	\PYG{k}{def} \PYG{n+nf}{\PYGZus{}\PYGZus{}call\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{):}
+		\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{		operator ()}
+\PYG{l+s+sd}{		\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{l+s+sd}{		Evaluate the Connectivity Kernel Function}
+\PYG{l+s+sd}{		at the given x,y coordinates}
+\PYG{l+s+sd}{		\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+		\PYG{n}{nrm} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{x}\PYG{o}{*}\PYG{n}{x} \PYG{o}{+} \PYG{n}{y}\PYG{o}{*}\PYG{n}{y}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Euclidian norm}
+
+		\PYG{k}{return} \PYG{l+m+mf}{0.5}\PYG{o}{*}\PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b}\PYG{o}{*}\PYG{n}{nrm}\PYG{p}{)}
+
+\PYG{k}{class} \PYG{n+nc}{ConnectivityKernel2}\PYG{p}{(}\PYG{n}{AbstractConnectivityKernel}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{	ConnectivityKernel2 Object \PYGZdq{}Mexican Hat\PYGZdq{}}
+\PYG{l+s+sd}{	\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{l+s+sd}{	Inherits data from AbstractConnectivityKernel}
+\PYG{l+s+sd}{	\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+	\PYG{k}{def} \PYG{n+nf}{\PYGZus{}\PYGZus{}call\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{):}
+		\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{		operator ()}
+\PYG{l+s+sd}{		\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{l+s+sd}{		Evaluate the Connectivity Kernel Function}
+\PYG{l+s+sd}{		at the given x,y coordinates}
+\PYG{l+s+sd}{		\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+		\PYG{n}{nrm} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{x}\PYG{o}{*}\PYG{n}{x} \PYG{o}{+} \PYG{n}{y}\PYG{o}{*}\PYG{n}{y}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Euclidian norm}
+		\PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(} \PYG{o}{\PYGZhy{}}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b}\PYG{o}{*}\PYG{n}{nrm} \PYG{p}{)}\PYG{o}{*}\PYG{p}{(} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{b}\PYG{o}{*}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{nrm}\PYG{p}{)} \PYG{o}{+} \PYG{n}{np}\PYG{o}{.}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{nrm}\PYG{p}{)} \PYG{p}{)}
+\end{Verbatim}

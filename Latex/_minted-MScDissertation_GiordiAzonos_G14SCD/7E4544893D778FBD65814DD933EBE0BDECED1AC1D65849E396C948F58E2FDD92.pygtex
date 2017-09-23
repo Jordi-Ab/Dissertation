@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Parameters for Firing Rate}
+\PYG{n}{mu} \PYG{o}{=} \PYG{l+m+mf}{3.2}\PYG{p}{;} \PYG{n}{theta} \PYG{o}{=} \PYG{l+m+mf}{5.6}\PYG{p}{;}
+\PYG{n}{f\PYGZus{}rate} \PYG{o}{=} \PYG{n}{fr}\PYG{o}{.}\PYG{n}{FiringRate2}\PYG{p}{(}\PYG{n}{mu}\PYG{p}{,} \PYG{n}{theta}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Initialize Neural Field}
+\PYG{n}{NeuralField} \PYG{o}{=} \PYG{n}{nf}\PYG{o}{.}\PYG{n}{NeuralField}\PYG{p}{(}\PYG{n}{f\PYGZus{}rate}\PYG{p}{,} \PYG{n}{W}\PYG{p}{)}
+\end{Verbatim}

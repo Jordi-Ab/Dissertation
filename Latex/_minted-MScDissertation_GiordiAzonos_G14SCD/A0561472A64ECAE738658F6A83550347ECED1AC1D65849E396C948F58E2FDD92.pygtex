@@ -1,0 +1,49 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{NeuralField Object}
+\PYG{l+s+sd}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{l+s+sd}{Neural Field model with linear spike frequency adaptation}
+\PYG{l+s+sd}{as the one in the paper: \PYGZdq{}Spots: Breathing, Drifting and}
+\PYG{l+s+sd}{Scattering in a Neural Field Model\PYGZdq{} by Coombes, Schmidt}
+\PYG{l+s+sd}{and Avitabile}
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k+kn}{as} \PYG{n+nn}{np}
+
+\PYG{k}{class} \PYG{n+nc}{NeuralFieldWithAdaptation}\PYG{p}{:}
+
+	\PYG{k}{def} \PYG{n+nf}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{firing\PYGZus{}rate}\PYG{p}{,} \PYG{n}{synaptic\PYGZus{}matrix}\PYG{p}{,} \PYG{n}{alpha}\PYG{p}{,} \PYG{n}{g}\PYG{p}{):}
+		\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{		Constructor}
+\PYG{l+s+sd}{		\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{l+s+sd}{		Receives:}
+\PYG{l+s+sd}{			firing\PYGZus{}rate \PYGZhy{}\PYGZgt{} callable object or callable function}
+\PYG{l+s+sd}{			synaptic\PYGZus{}matrix \PYGZhy{}\PYGZgt{} Square matrix (Synaptic connectivity)}
+\PYG{l+s+sd}{			alpha \PYGZhy{}\PYGZgt{} Adaptation constant}
+\PYG{l+s+sd}{			g \PYGZhy{}\PYGZgt{} Strength of the negative feedback}
+\PYG{l+s+sd}{		\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{f\PYGZus{}rate} \PYG{o}{=} \PYG{n}{firing\PYGZus{}rate}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{W} \PYG{o}{=} \PYG{n}{synaptic\PYGZus{}matrix}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{alpha} \PYG{o}{=} \PYG{n}{alpha}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{g} \PYG{o}{=} \PYG{n}{g}
+
+	\PYG{k}{def} \PYG{n+nf}{\PYGZus{}\PYGZus{}call\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{t}\PYG{p}{,} \PYG{n}{v}\PYG{p}{):}
+		\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{		operator ()}
+\PYG{l+s+sd}{		\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{l+s+sd}{		Evaluate the discretized integral equation}
+\PYG{l+s+sd}{		at the given time t and vector u.}
+\PYG{l+s+sd}{		* Can be used directly with time steppers.}
+\PYG{l+s+sd}{		\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+		\PYG{n}{alpha} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{alpha}\PYG{p}{;} \PYG{n}{g} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{g}
+		\PYG{n}{N} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{2} \PYG{p}{)}
+		\PYG{n}{u} \PYG{o}{=} \PYG{n}{v}\PYG{p}{[:}\PYG{n}{N}\PYG{p}{];} \PYG{n}{a}\PYG{o}{=}\PYG{n}{v}\PYG{p}{[}\PYG{n}{N}\PYG{p}{:]} \PYG{c+c1}{\PYGZsh{} Break v in u and a}
+
+		\PYG{n}{f\PYGZus{}u} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{f\PYGZus{}rate}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Evaluate firing rate at u}
+		\PYG{n}{v0} \PYG{o}{=} \PYG{n}{alpha}\PYG{o}{*}\PYG{p}{(} \PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{W}\PYG{p}{)}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{f\PYGZus{}u}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{u} \PYG{o}{\PYGZhy{}} \PYG{n}{g}\PYG{o}{*}\PYG{n}{a} \PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Equate synaptic activity}
+		\PYG{n}{v1} \PYG{o}{=} \PYG{n}{u} \PYG{o}{\PYGZhy{}} \PYG{n}{a} \PYG{c+c1}{\PYGZsh{} Equate adapative field}
+
+		\PYG{n}{result} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{([}\PYG{n}{v0}\PYG{p}{,}\PYG{n}{v1}\PYG{p}{])} \PYG{c+c1}{\PYGZsh{} stack v0 on top of v1}
+
+		\PYG{k}{return} \PYG{n}{result}
+\end{Verbatim}

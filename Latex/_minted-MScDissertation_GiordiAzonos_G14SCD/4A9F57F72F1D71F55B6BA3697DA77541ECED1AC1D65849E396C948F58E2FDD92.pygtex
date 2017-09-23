@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{computeF}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{mesh}\PYG{p}{,} \PYG{n}{As}\PYG{p}{,} \PYG{n}{w}\PYG{p}{,} \PYG{n}{f}\PYG{p}{,} \PYG{n}{rho}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{	One evaluation of the right hand side.}
+\PYG{l+s+sd}{	Receives:}
+\PYG{l+s+sd}{		u \PYGZhy{}\PYGZgt{} cuerrent state vector to evaluate at}
+\PYG{l+s+sd}{		mesh \PYGZhy{}\PYGZgt{} mesh of interior points}
+\PYG{l+s+sd}{		As \PYGZhy{}\PYGZgt{} Vector of Areas of each element}
+\PYG{l+s+sd}{		w \PYGZhy{}\PYGZgt{} Synaptic connectivity function}
+\PYG{l+s+sd}{		f \PYGZhy{}\PYGZgt{} firing rate function}
+\PYG{l+s+sd}{		rho \PYGZhy{}\PYGZgt{} Weights for the Gauss Quadrature rule}
+\PYG{l+s+sd}{	\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+	\PYG{n}{N} \PYG{o}{=} \PYG{n}{xs}\PYG{o}{.}\PYG{n}{shape}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{c+c1}{\PYGZsh{} Length of the mesh}
+	\PYG{n}{Nt} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{A}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Number of elements}
+	\PYG{n}{Ng} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{rho}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Number of Gauss Points}
+	\PYG{n}{F} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}
+
+	\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{N}\PYG{p}{):}
+		\PYG{n}{S} \PYG{o}{=} \PYG{l+m+mf}{0.0}
+		\PYG{k}{for} \PYG{n}{l} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{Nt}\PYG{p}{):}
+			\PYG{n}{sigma} \PYG{o}{=} \PYG{l+m+mi}{0}
+			\PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{Ng}\PYG{p}{):}
+				\PYG{n}{k} \PYG{o}{=} \PYG{n}{l}\PYG{o}{*}\PYG{n}{nG} \PYG{o}{+} \PYG{n}{j}
+				\PYG{n}{sigma} \PYG{o}{+=} \PYG{n}{w}\PYG{p}{(}\PYG{n}{xs}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{xs}\PYG{p}{[}\PYG{n}{k}\PYG{p}{])}\PYG{o}{*}\PYG{n}{f}\PYG{p}{(}\PYG{n}{u}\PYG{p}{[}\PYG{n}{k}\PYG{p}{])}\PYG{o}{*}\PYG{n}{rho}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+			\PYG{n}{S} \PYG{o}{+=} \PYG{n}{sigma}\PYG{o}{*}\PYG{n}{A}\PYG{p}{[}\PYG{n}{l}\PYG{p}{]}
+		\PYG{n}{F}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{o}{\PYGZhy{}} \PYG{n}{u}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{+} \PYG{n}{S}
+	\PYG{k}{return} \PYG{n}{F}
+\end{Verbatim}

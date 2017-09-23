@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{fig} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{(}\PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{15}\PYG{p}{,}\PYG{l+m+mi}{3}\PYG{p}{))}
+
+\PYG{c+c1}{\PYGZsh{} Plot initial time}
+\PYG{n}{ax1} \PYG{o}{=} \PYG{n}{fig}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{131}\PYG{p}{)}
+\PYG{n}{xx0}\PYG{p}{,} \PYG{n}{yy0}\PYG{p}{,} \PYG{n}{uu0} \PYG{o}{=} \PYG{n}{toMeshGrid}\PYG{p}{(}\PYG{n}{xs}\PYG{p}{[:,}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{xs}\PYG{p}{[:,}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{u0}\PYG{p}{)}
+\PYG{n}{cont1} \PYG{o}{=} \PYG{n}{ax1}\PYG{o}{.}\PYG{n}{contourf}\PYG{p}{(}\PYG{n}{xx0}\PYG{p}{,} \PYG{n}{yy0}\PYG{p}{,} \PYG{n}{uu0}\PYG{p}{,} \PYG{l+m+mi}{20}\PYG{p}{,} \PYG{n}{cmap}\PYG{o}{=}\PYG{n}{plt}\PYG{o}{.}\PYG{n}{get\PYGZus{}cmap}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}viridis\PYGZsq{}}\PYG{p}{))}
+\PYG{n}{ax1}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}t = 0\PYGZdq{}}\PYG{p}{,} \PYG{n}{loc}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}left\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ax1}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s1}{r\PYGZsq{}\PYGZdl{}\PYGZbs{}mu =\PYGZdl{}\PYGZsq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{mu}\PYG{p}{),} \PYG{n}{loc}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}right\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{colorbar}\PYG{p}{(}\PYG{n}{cont1}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Plot half time}
+\PYG{n}{ax2} \PYG{o}{=} \PYG{n}{fig}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{132}\PYG{p}{)}
+\PYG{n}{xn\PYGZus{}2}\PYG{p}{,} \PYG{n}{yn\PYGZus{}2}\PYG{p}{,} \PYG{n}{un\PYGZus{}2} \PYG{o}{=} \PYG{n}{toMeshGrid}\PYG{p}{(}\PYG{n}{xs}\PYG{p}{[:,}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{xs}\PYG{p}{[:,}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{us}\PYG{p}{[}\PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{time\PYGZus{}points}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)])}
+\PYG{n}{cont2} \PYG{o}{=} \PYG{n}{ax2}\PYG{o}{.}\PYG{n}{contourf}\PYG{p}{(}\PYG{n}{xn\PYGZus{}2}\PYG{p}{,} \PYG{n}{yn\PYGZus{}2}\PYG{p}{,} \PYG{n}{un\PYGZus{}2}\PYG{p}{,} \PYG{l+m+mi}{20}\PYG{p}{,} \PYG{n}{cmap}\PYG{o}{=}\PYG{n}{plt}\PYG{o}{.}\PYG{n}{get\PYGZus{}cmap}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}viridis\PYGZsq{}}\PYG{p}{))}
+\PYG{n}{ax2}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}t = \PYGZdq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{final\PYGZus{}t}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)),} \PYG{n}{loc}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}left\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ax2}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s1}{r\PYGZsq{}\PYGZdl{}\PYGZbs{}mu =\PYGZdl{}\PYGZsq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{mu}\PYG{p}{),} \PYG{n}{loc}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}right\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{colorbar}\PYG{p}{(}\PYG{n}{cont2}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Plot final time}
+\PYG{n}{ax3} \PYG{o}{=} \PYG{n}{fig}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{133}\PYG{p}{)}
+\PYG{n}{xn}\PYG{p}{,} \PYG{n}{yn}\PYG{p}{,} \PYG{n}{un} \PYG{o}{=} \PYG{n}{toMeshGrid}\PYG{p}{(}\PYG{n}{xs}\PYG{p}{[:,}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{xs}\PYG{p}{[:,}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{us}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{])}
+\PYG{n}{cont3} \PYG{o}{=} \PYG{n}{ax3}\PYG{o}{.}\PYG{n}{contourf}\PYG{p}{(}\PYG{n}{xn}\PYG{p}{,} \PYG{n}{yn}\PYG{p}{,} \PYG{n}{un}\PYG{p}{,} \PYG{l+m+mi}{20}\PYG{p}{,} \PYG{n}{cmap}\PYG{o}{=}\PYG{n}{plt}\PYG{o}{.}\PYG{n}{get\PYGZus{}cmap}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}viridis\PYGZsq{}}\PYG{p}{))}
+\PYG{n}{ax3}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}t = \PYGZdq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{final\PYGZus{}t}\PYG{p}{),} \PYG{n}{loc}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}left\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{ax3}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s1}{r\PYGZsq{}\PYGZdl{}\PYGZbs{}mu =\PYGZdl{}\PYGZsq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{mu}\PYG{p}{),} \PYG{n}{loc}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}right\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{colorbar}\PYG{p}{(}\PYG{n}{cont3}\PYG{p}{)}
+\PYG{n}{plt}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Plots/IC\PYGZdq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{initCond}\PYG{o}{.}\PYG{n}{num}\PYG{p}{)}\PYG{o}{+}\PYG{l+s+s2}{\PYGZdq{}/2dTri\PYGZus{}IC\PYGZdq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{initCond}\PYG{o}{.}\PYG{n}{num}\PYG{p}{)}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{NT}\PYG{p}{)}\PYG{o}{+}\PYG{l+s+s2}{\PYGZdq{}\PYGZus{}elems\PYGZus{}(\PYGZdq{}}\PYG{o}{+}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{mu}\PYG{p}{)}\PYG{o}{+}\PYG{l+s+s2}{\PYGZdq{})mu.png\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

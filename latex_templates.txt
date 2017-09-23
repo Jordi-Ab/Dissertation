@@ -1,0 +1,34 @@
+Listing
+\begin{listing}[H]
+	\begin{center}
+		\setminted{fontsize=\small,baselinestretch=1}
+		\begin{minted}{python}
+	Code ...
+		\end{minted}	
+	\end{center}
+	\caption{}
+	\label{}
+\end{listing}
+
+Figure
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.5\textwidth]{Figures/interior_points.png}
+	\end{center}
+	\caption{}
+	\label{}
+\end{figure}
+
+Table
+\begin{table}[H]
+	\centering
+\begin{tabular}{|c|c|c|c|}
+	\hline
+	$t_1$&$t_2$&$t_3$&$t_4$\\
+	\hline
+	1&2&3&4\\
+	\hline
+\end{tabular}
+\caption{}
+\label{table:1}
+\end{table}

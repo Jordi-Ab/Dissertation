@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Initial Conditions}
+\PYG{c+c1}{\PYGZsh{}\PYGZus{}A = 6; \PYGZus{}L = 5.77 \PYGZsh{} parameters for initial condition 1}
+\PYG{n}{\PYGZus{}A} \PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{;} \PYG{n}{\PYGZus{}L} \PYG{o}{=} \PYG{l+m+mi}{100} \PYG{c+c1}{\PYGZsh{} parameters for initial condition 2}
+\PYG{n}{initCond} \PYG{o}{=} \PYG{n}{ic}\PYG{o}{.}\PYG{n}{InitialCondition2}\PYG{p}{(}\PYG{n}{\PYGZus{}A}\PYG{p}{,} \PYG{n}{\PYGZus{}L}\PYG{p}{)}
+
+\PYG{n}{u0} \PYG{o}{=} \PYG{p}{[]}
+\PYG{k}{for} \PYG{n}{point} \PYG{o+ow}{in} \PYG{n}{xs}\PYG{p}{:}
+	\PYG{n}{x}\PYG{p}{,}\PYG{n}{y} \PYG{o}{=} \PYG{n}{point}
+	\PYG{n}{u0}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{initCond}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{))}
+\PYG{n}{u0} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{u0}\PYG{p}{)}
+\end{Verbatim}

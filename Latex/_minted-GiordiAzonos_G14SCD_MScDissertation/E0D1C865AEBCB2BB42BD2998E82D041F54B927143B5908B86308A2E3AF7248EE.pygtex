@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{computeF}\PYG{p}{(}\PYG{n}{u}\PYG{p}{,} \PYG{n}{f\PYGZus{}rate}\PYG{p}{,} \PYG{n}{W}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{	One evaluation of the right hand side.}
+\PYG{l+s+sd}{	Receives:}
+\PYG{l+s+sd}{		u \PYGZhy{}\PYGZgt{} cuerrent state vector to evaluate at}
+\PYG{l+s+sd}{		W \PYGZhy{}\PYGZgt{} pre computed Synaptic Matrix}
+\PYG{l+s+sd}{		f\PYGZus{}rate \PYGZhy{}\PYGZgt{} callable firing rate function}
+\PYG{l+s+sd}{	\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+	\PYG{n}{f\PYGZus{}u} \PYG{o}{=} \PYG{n}{f\PYGZus{}rate}\PYG{p}{(}\PYG{n}{u}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Evaluate firing rate at u}
+	\PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{n}{u} \PYG{o}{+} \PYG{p}{(}\PYG{n}{W}\PYG{p}{)}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{f\PYGZus{}u}\PYG{p}{)}
+\end{Verbatim}

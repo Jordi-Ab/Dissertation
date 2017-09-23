@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} plot mesh}
+\PYG{n}{plot\PYGZus{}mesh} \PYG{o}{=} \PYG{n+nb+bp}{True}
+\PYG{k}{if}\PYG{p}{(}\PYG{n}{plot\PYGZus{}mesh}\PYG{p}{):}
+	\PYG{n}{fig1} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{figure}\PYG{p}{()}
+	\PYG{n}{fig1}\PYG{o}{.}\PYG{n}{suptitle}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Triangulated Mesh\PYGZdq{}}\PYG{p}{)}
+	\PYG{n}{ax} \PYG{o}{=} \PYG{n}{fig1}\PYG{o}{.}\PYG{n}{add\PYGZus{}subplot}\PYG{p}{(}\PYG{l+m+mi}{111}\PYG{p}{)}
+	\PYG{n}{ax}\PYG{o}{.}\PYG{n}{triplot}\PYG{p}{(}\PYG{n}{mesh\PYGZus{}pts}\PYG{p}{[:,} \PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n}{mesh\PYGZus{}pts}\PYG{p}{[:,} \PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n}{elems}\PYG{p}{)}
+	\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}x\PYGZdq{}}\PYG{p}{)}
+	\PYG{n}{ax}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}y\PYGZdq{}}\PYG{p}{)}
+	\PYG{n}{fig1}\PYG{o}{.}\PYG{n}{savefig}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}The\PYGZus{}Mesh\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

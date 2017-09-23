@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Generate Mesh}
+\PYG{n}{Lx}\PYG{o}{=\PYGZhy{}}\PYG{l+m+mi}{30}\PYG{p}{;} \PYG{n}{Ux}\PYG{o}{=}\PYG{l+m+mi}{30}
+\PYG{n}{Ly}\PYG{o}{=\PYGZhy{}}\PYG{l+m+mi}{30}\PYG{p}{;} \PYG{n}{Uy}\PYG{o}{=}\PYG{l+m+mi}{30}
+\PYG{n}{length} \PYG{o}{=} \PYG{l+m+mi}{3} \PYG{c+c1}{\PYGZsh{} Decrease length to increase number of elements}
+\PYG{n}{p}\PYG{p}{,}\PYG{n}{v}\PYG{o}{=}\PYG{n}{RectangleSegments}\PYG{p}{([}\PYG{n}{Ux}\PYG{p}{,}\PYG{n}{Uy}\PYG{p}{],[}\PYG{n}{Lx}\PYG{p}{,} \PYG{n}{Ly}\PYG{p}{],}\PYG{n}{edge\PYGZus{}length}\PYG{o}{=}\PYG{n}{length}\PYG{p}{)}
+\PYG{n}{mesh\PYGZus{}pts}\PYG{p}{,} \PYG{n}{elems} \PYG{o}{=} \PYG{n}{DoTriMesh}\PYG{p}{(}\PYG{n}{p}\PYG{p}{,}\PYG{n}{v}\PYG{p}{,}\PYG{n}{edge\PYGZus{}length}\PYG{o}{=}\PYG{n}{length}\PYG{p}{)}
+\PYG{n}{NT} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{elems}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Number of triangles}
+\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Number of Elements = \PYGZdq{}} \PYG{o}{+} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{NT}\PYG{p}{))}
+\end{Verbatim}

@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{method} \PYG{o}{=} \PYG{n}{ode}\PYG{p}{(}\PYG{n}{NeuralField}\PYG{p}{)}\PYG{o}{.}\PYG{n}{set\PYGZus{}integrator}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}dopri5\PYGZdq{}}\PYG{p}{)}
+\PYG{n}{method}\PYG{o}{.}\PYG{n}{set\PYGZus{}initial\PYGZus{}value}\PYG{p}{(}\PYG{n}{u0}\PYG{p}{)}
+\PYG{n}{final\PYGZus{}t} \PYG{o}{=} \PYG{l+m+mi}{15}
+\PYG{n}{dt} \PYG{o}{=} \PYG{l+m+mf}{0.1}
+\PYG{n}{us} \PYG{o}{=} \PYG{p}{[]}
+\PYG{n}{time\PYGZus{}points} \PYG{o}{=} \PYG{p}{[]}
+\PYG{k}{while} \PYG{n}{method}\PYG{o}{.}\PYG{n}{t} \PYG{o}{\PYGZlt{}} \PYG{n}{final\PYGZus{}t}\PYG{p}{:}
+	\PYG{n}{next\PYGZus{}t} \PYG{o}{=} \PYG{n}{method}\PYG{o}{.}\PYG{n}{t}\PYG{o}{+}\PYG{n}{dt}
+	\PYG{n}{time\PYGZus{}points}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{next\PYGZus{}t}\PYG{p}{)}
+	\PYG{n}{next\PYGZus{}u} \PYG{o}{=} \PYG{n}{method}\PYG{o}{.}\PYG{n}{integrate}\PYG{p}{(}\PYG{n}{next\PYGZus{}t}\PYG{p}{)}
+	\PYG{n}{us}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{next\PYGZus{}u}\PYG{p}{)}
+\end{Verbatim}

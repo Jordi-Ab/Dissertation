@@ -1,0 +1,29 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{buildW}\PYG{p}{(}\PYG{n}{mesh}\PYG{p}{,} \PYG{n}{Areas}\PYG{p}{,} \PYG{n}{weights}\PYG{p}{,} \PYG{n}{kernel}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{	Assemble the Synaptic Matrix W.}
+\PYG{l+s+sd}{	Receives:}
+\PYG{l+s+sd}{		mesh \PYGZhy{}\PYGZgt{} mesh of interior points}
+\PYG{l+s+sd}{		Areas \PYGZhy{}\PYGZgt{} Vector of Areas of each element (numpy array)}
+\PYG{l+s+sd}{		weights \PYGZhy{}\PYGZgt{} Weights for the Gauss Quadrature rule (numpy array)}
+\PYG{l+s+sd}{		kernel \PYGZhy{}\PYGZgt{} Synaptic connectivity kernel function (callable function)}
+\PYG{l+s+sd}{	\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+	\PYG{c+c1}{\PYGZsh{} Vector of areas and weights}
+	\PYG{n}{rhos} \PYG{o}{=} \PYG{n}{numpy}\PYG{o}{.}\PYG{n}{outer}\PYG{p}{(}\PYG{n}{Areas}\PYG{o}{.}\PYG{n}{T}\PYG{p}{,} \PYG{n}{weights}\PYG{p}{)}
+	\PYG{n}{rhos} \PYG{o}{=} \PYG{n}{rhos}\PYG{o}{.}\PYG{n}{flatten}\PYG{p}{()}
+	\PYG{n}{N} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{mesh}\PYG{p}{);} \PYG{n}{W} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(} \PYG{p}{(}\PYG{n}{N}\PYG{p}{,}\PYG{n}{N}\PYG{p}{)} \PYG{p}{)}
+	\PYG{c+c1}{\PYGZsh{} Compute only the upper triangular part}
+	\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{N}\PYG{p}{):}
+		\PYG{n}{x\PYGZus{}pt} \PYG{o}{=} \PYG{n}{xs}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}
+		\PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,} \PYG{n}{N}\PYG{p}{):}
+			\PYG{n}{y\PYGZus{}pt} \PYG{o}{=} \PYG{n}{xs}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+			\PYG{n}{x}\PYG{p}{,} \PYG{n}{y} \PYG{o}{=} \PYG{n}{x\PYGZus{}pt}\PYG{o}{\PYGZhy{}}\PYG{n}{y\PYGZus{}pt}
+			\PYG{n}{W}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{kernel}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}
+
+	\PYG{c+c1}{\PYGZsh{} Copy upper triangular part to lower triangular part}
+	\PYG{n}{i\PYGZus{}lower} \PYG{o}{=} \PYG{n}{numpy}\PYG{o}{.}\PYG{n}{tril\PYGZus{}indices}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}
+	\PYG{n}{W}\PYG{p}{[}\PYG{n}{i\PYGZus{}lower}\PYG{p}{]} \PYG{o}{=} \PYG{n}{W}\PYG{o}{.}\PYG{n}{T}\PYG{p}{[}\PYG{n}{i\PYGZus{}lower}\PYG{p}{]}
+
+	\PYG{n}{W} \PYG{o}{*=} \PYG{n}{rhos} \PYG{c+c1}{\PYGZsh{} Multiply times the weights}
+	\PYG{k}{return} \PYG{n}{W}
+\end{Verbatim}

@@ -1,0 +1,38 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{assembleSynapticMatrix}\PYG{p}{(}\PYG{n}{grid}\PYG{p}{,} \PYG{n}{g\PYGZus{}wgts}\PYG{p}{,} \PYG{n}{kernel}\PYG{p}{,} \PYG{n}{h}\PYG{p}{,} \PYG{n}{n}\PYG{p}{,} \PYG{n}{q}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{	Function: assembleSynapticMatrix}
+\PYG{l+s+sd}{	\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{l+s+sd}{	Receives:}
+\PYG{l+s+sd}{		grid: array of interior points.}
+\PYG{l+s+sd}{		g\PYGZus{}wgts: Gauss weights on the [\PYGZhy{}1,1] interval.}
+\PYG{l+s+sd}{		kernel: Synaptic connectivity kernel function.}
+\PYG{l+s+sd}{		h: spacing between points.}
+\PYG{l+s+sd}{		n: number of points in the x\PYGZhy{}axis.}
+\PYG{l+s+sd}{		q: number of interior gauss nodes used for the grid.}
+\PYG{l+s+sd}{	Returns:}
+\PYG{l+s+sd}{		Synaptic Matrix W of shape (N\PYGZus{}sq,N\PYGZus{}sq) where N\PYGZus{}sq is the length}
+\PYG{l+s+sd}{		of the grid. i.e. N\PYGZus{}sq = ( (n\PYGZhy{}1)*q )\PYGZca{}2}
+\PYG{l+s+sd}{	\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+	\PYG{n}{wgts\PYGZus{}h} \PYG{o}{=} \PYG{p}{(}\PYG{n}{h}\PYG{o}{/}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{*}\PYG{n}{g\PYGZus{}wgts} \PYG{c+c1}{\PYGZsh{} Scale weights}
+	\PYG{c+c1}{\PYGZsh{} Weights vector:}
+	\PYG{n}{wgts} \PYG{o}{=} \PYG{n}{numpy}\PYG{o}{.}\PYG{n}{tile}\PYG{p}{(}\PYG{n}{wgts\PYGZus{}h}\PYG{p}{,} \PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}
+	\PYG{n}{wgts} \PYG{o}{=} \PYG{n}{numpy}\PYG{o}{.}\PYG{n}{outer}\PYG{p}{(}\PYG{n}{wgts}\PYG{o}{.}\PYG{n}{T}\PYG{p}{,} \PYG{n}{wgts}\PYG{p}{)}
+	\PYG{n}{wgts} \PYG{o}{=} \PYG{n}{wgts}\PYG{o}{.}\PYG{n}{flatten}\PYG{p}{()}
+
+	\PYG{n}{N\PYGZus{}sq} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{grid}\PYG{p}{);} \PYG{n}{W} \PYG{o}{=} \PYG{n}{numpy}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(} \PYG{p}{(}\PYG{n}{N\PYGZus{}sq}\PYG{p}{,} \PYG{n}{N\PYGZus{}sq}\PYG{p}{)} \PYG{p}{)}
+	\PYG{c+c1}{\PYGZsh{} Compute only the upper triangular part}
+	\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{N\PYGZus{}sq}\PYG{p}{):}
+		\PYG{n}{x\PYGZus{}pt}\PYG{o}{=}\PYG{n}{grid}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}
+		\PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,} \PYG{n}{N\PYGZus{}sq}\PYG{p}{):}
+			\PYG{n}{y\PYGZus{}pt} \PYG{o}{=} \PYG{n}{grid}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+			\PYG{n}{x}\PYG{p}{,} \PYG{n}{y} \PYG{o}{=} \PYG{n}{x\PYGZus{}pt}\PYG{o}{\PYGZhy{}}\PYG{n}{y\PYGZus{}pt}
+			\PYG{n}{W}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{kernel}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}
+
+	\PYG{c+c1}{\PYGZsh{} Copy upper triangular part to lower triangular part}
+	\PYG{n}{i\PYGZus{}lower} \PYG{o}{=} \PYG{n}{numpy}\PYG{o}{.}\PYG{n}{tril\PYGZus{}indices}\PYG{p}{(}\PYG{n}{N\PYGZus{}sq}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}
+	\PYG{n}{W}\PYG{p}{[}\PYG{n}{i\PYGZus{}lower}\PYG{p}{]} \PYG{o}{=} \PYG{n}{W}\PYG{o}{.}\PYG{n}{T}\PYG{p}{[}\PYG{n}{i\PYGZus{}lower}\PYG{p}{]}
+
+	\PYG{n}{W} \PYG{o}{*=} \PYG{n}{wgts} \PYG{c+c1}{\PYGZsh{} Multiply times the weights (pointwise multiplication)}
+	\PYG{k}{return} \PYG{n}{W}
+\end{Verbatim}

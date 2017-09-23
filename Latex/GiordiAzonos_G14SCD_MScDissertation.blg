@@ -1,0 +1,59 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: GiordiAzonos_G14SCD_MScDissertation.aux
+The style file: abbrv.bst
+Database file #1: mybibliography.bib
+Repeated entry---line 49 of file mybibliography.bib
+ : @article{rankin2014continuation
+ :                                ,
+I'm skipping whatever remains of this entry
+Too many commas in name 1 of "Stephen Coombes, Peter beim Graben, Roland Potthast, James Wright" for entry coombes2012NeuralFields
+while executing---line 1049 of file abbrv.bst
+Warning--empty journal in atkinson1976survey
+Warning--empty journal in laingatwo
+Warning--empty year in laingatwo
+Too many commas in name 1 of "Stephen Coombes, Peter beim Graben, Roland Potthast, James Wright" for entry coombes2012NeuralFields
+while executing---line 1090 of file abbrv.bst
+Warning--empty year in CompNeuroSci
+You've used 35 entries,
+            2118 wiz_defined-function locations,
+            710 strings with 9432 characters,
+and the built_in function-call counts, 11126 in all, are:
+= -- 1114
+> -- 469
+< -- 5
++ -- 191
+- -- 150
+* -- 789
+:= -- 1866
+add.period$ -- 107
+call.type$ -- 35
+change.case$ -- 174
+chr.to.int$ -- 0
+cite$ -- 39
+duplicate$ -- 427
+empty$ -- 899
+format.name$ -- 150
+if$ -- 2300
+int.to.chr$ -- 0
+int.to.str$ -- 35
+missing$ -- 41
+newline$ -- 177
+num.names$ -- 70
+pop$ -- 171
+preamble$ -- 1
+purify$ -- 144
+quote$ -- 0
+skip$ -- 286
+stack$ -- 0
+substring$ -- 751
+swap$ -- 62
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 128
+warning$ -- 4
+while$ -- 120
+width$ -- 37
+write$ -- 379
+(There were 3 error messages)

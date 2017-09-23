@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Assemble Mesh of Interior Points}
+\PYG{n}{xs} \PYG{o}{=} \PYG{p}{[]}
+\PYG{n}{As} \PYG{o}{=} \PYG{p}{[]}
+\PYG{k}{for} \PYG{n}{l}\PYG{p}{,} \PYG{n}{elem} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n}{elems}\PYG{p}{):}
+	\PYG{n}{v1}\PYG{p}{,}\PYG{n}{v2}\PYG{p}{,}\PYG{n}{v3} \PYG{o}{=} \PYG{n}{mesh\PYGZus{}pts}\PYG{p}{[}\PYG{n}{elem}\PYG{p}{]} \PYG{c+c1}{\PYGZsh{} Get vertices of the element}
+	\PYG{n}{A\PYGZus{}l} \PYG{o}{=} \PYG{n}{Qtri}\PYG{o}{.}\PYG{n}{computeArea}\PYG{p}{(}\PYG{n}{v1}\PYG{p}{,}\PYG{n}{v2}\PYG{p}{,}\PYG{n}{v3}\PYG{p}{)}
+	\PYG{n}{As}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{A\PYGZus{}l}\PYG{p}{)}
+	\PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{weights}\PYG{p}{)):}
+		\PYG{n}{new\PYGZus{}point} \PYG{o}{=} \PYG{n}{Qtri}\PYG{o}{.}\PYG{n}{mapX}\PYG{p}{(}\PYG{n}{v1}\PYG{p}{,} \PYG{n}{v2}\PYG{p}{,} \PYG{n}{v3}\PYG{p}{,} \PYG{n}{x\PYGZus{}hat}\PYG{p}{[}\PYG{n}{j}\PYG{p}{],} \PYG{n}{y\PYGZus{}hat}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])}
+		\PYG{n}{xs}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{new\PYGZus{}point}\PYG{p}{)}
+\PYG{n}{xs} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{xs}\PYG{p}{)}
+\PYG{n}{As} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{As}\PYG{p}{)}
+\PYG{n}{N} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{xs}\PYG{p}{)}
+\end{Verbatim}

@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{buildMesh}\PYG{p}{(}\PYG{n}{conn\PYGZus{}mat}\PYG{p}{,} \PYG{n}{vertices}\PYG{p}{,} \PYG{n}{x\PYGZus{}hat}\PYG{p}{,} \PYG{n}{y\PYGZus{}hat}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{	conn\PYGZus{}mat is the Connectivity Array C\PYGZus{}\PYGZob{}\PYGZbs{}kappa\PYGZcb{}}
+\PYG{l+s+sd}{	vertices is the Vertices Array V\PYGZus{}\PYGZob{}\PYGZbs{}kappa\PYGZcb{}}
+\PYG{l+s+sd}{	x\PYGZus{}hat, y\PYGZus{}hat are the Gauss points inside a}
+\PYG{l+s+sd}{		reference triangle \PYGZbs{}hat \PYGZbs{}kappa}
+\PYG{l+s+sd}{	\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+	\PYG{k}{for} \PYG{n}{l}\PYG{p}{,} \PYG{n}{elem} \PYG{o+ow}{in} \PYG{n+nb}{enumerate}\PYG{p}{(}\PYG{n}{conn\PYGZus{}mat}\PYG{p}{):}
+		\PYG{n}{v1}\PYG{p}{,}\PYG{n}{v2}\PYG{p}{,}\PYG{n}{v3} \PYG{o}{=} \PYG{n}{vertices}\PYG{p}{[}\PYG{n}{elem}\PYG{p}{]}
+		\PYG{n}{A}\PYG{p}{[}\PYG{n}{l}\PYG{p}{]} \PYG{o}{=} \PYG{n}{computeArea}\PYG{p}{(}\PYG{n}{v1}\PYG{p}{,}\PYG{n}{v2}\PYG{p}{,}\PYG{n}{v3}\PYG{p}{)}
+		\PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{Ng}\PYG{p}{):}
+			\PYG{n}{mesh}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{mapX}\PYG{p}{(}\PYG{n}{v1}\PYG{p}{,}\PYG{n}{v2}\PYG{p}{,}\PYG{n}{v3}\PYG{p}{,}\PYG{n}{x\PYGZus{}hat}\PYG{p}{[}\PYG{n}{j}\PYG{p}{],}\PYG{n}{y\PYGZus{}hat}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])}
+\end{Verbatim}

@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Used for Plotting 3D result with linear vectors}
+\PYG{k}{def} \PYG{n+nf}{toMeshGrid}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{z}\PYG{p}{,} \PYG{n}{resX}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{,} \PYG{n}{resY}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{):}
+	\PYG{l+s+s2}{\PYGZdq{}Convert 3 column data to matplotlib meshgrid\PYGZdq{}}
+	\PYG{n}{xi} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{x}\PYG{p}{),} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{x}\PYG{p}{),} \PYG{n}{resX}\PYG{p}{)}
+	\PYG{n}{yi} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{n+nb}{min}\PYG{p}{(}\PYG{n}{y}\PYG{p}{),} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{y}\PYG{p}{),} \PYG{n}{resY}\PYG{p}{)}
+	\PYG{n}{Z} \PYG{o}{=} \PYG{n}{griddata}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{z}\PYG{p}{,} \PYG{n}{xi}\PYG{p}{,} \PYG{n}{yi}\PYG{p}{)}
+	\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{meshgrid}\PYG{p}{(}\PYG{n}{xi}\PYG{p}{,} \PYG{n}{yi}\PYG{p}{)}
+	\PYG{k}{return} \PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{Z}
+\end{Verbatim}

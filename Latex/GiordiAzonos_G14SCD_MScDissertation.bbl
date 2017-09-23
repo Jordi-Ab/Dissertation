@@ -1,0 +1,198 @@
+\begin{thebibliography}{10}
+
+\bibitem{amari1975homogeneous}
+S.-I. Amari.
+\newblock Homogeneous nets of neuron-like elements.
+\newblock {\em Biological cybernetics}, 17(4):211--220, 1975.
+
+\bibitem{amari1977dynamics}
+S.-i. Amari.
+\newblock Dynamics of pattern formation in lateral-inhibition type neural
+  fields.
+\newblock {\em Biological cybernetics}, 27(2):77--87, 1977.
+
+\bibitem{atkinson1976survey}
+K.~Atkinson.
+\newblock A survey of numerical methods for the solution of fredholm integral
+  equations of the second kind.
+\newblock 1976.
+
+\bibitem{atkinson1992survey}
+K.~E. Atkinson et~al.
+\newblock A survey of numerical methods for solving nonlinear integral
+  equations.
+\newblock {\em Journal of integral equations and applications}, 4(1):15--46,
+  1992.
+
+\bibitem{AVITABILE201524}
+D.~Avitabile and H.~Schmidt.
+\newblock Snakes and ladders in an inhomogeneous neural field model.
+\newblock {\em Physica D: Nonlinear Phenomena}, 294:24 -- 36, 2015.
+
+\bibitem{bressloff2011spatiotemporal}
+P.~C. Bressloff.
+\newblock Spatiotemporal dynamics of continuum neural fields.
+\newblock {\em Journal of Physics A: Mathematical and Theoretical},
+  45(3):033001, 2011.
+
+\bibitem{bressloff2014waves}
+P.~C. Bressloff.
+\newblock Waves in neural media.
+\newblock {\em Lecture Notes on Mathematical Modelling in the Life Sciences
+  (Springer, New York, 2014)}, 2014.
+
+\bibitem{bressloff2001geometric}
+P.~C. Bressloff, J.~D. Cowan, M.~Golubitsky, P.~J. Thomas, and M.~C. Wiener.
+\newblock Geometric visual hallucinations, euclidean symmetry and the
+  functional architecture of striate cortex.
+\newblock {\em Philosophical Transactions of the Royal Society B: Biological
+  Sciences}, 356(1407):299--330, 2001.
+
+\bibitem{coombes2005waves}
+S.~Coombes.
+\newblock Waves, bumps, and patterns in neural field theories.
+\newblock {\em Biological cybernetics}, 93(2):91--108, 2005.
+
+\bibitem{coombes2003waves}
+S.~Coombes, G.~J. Lord, and M.~R. Owen.
+\newblock Waves and bumps in neuronal networks with axo-dendritic synaptic
+  interactions.
+\newblock {\em Physica D: Nonlinear Phenomena}, 178(3):219--241, 2003.
+
+\bibitem{coombes2014spots}
+S.~Coombes, H.~Schmidt, and D.~Avitabile.
+\newblock Spots: breathing, drifting and scattering in a neural field model.
+\newblock In {\em Neural Fields}, pages 187--211. Springer, 2014.
+
+\bibitem{coombes2012interface}
+S.~Coombes, H.~Schmidt, and I.~Bojak.
+\newblock Interface dynamics in planar neural field models.
+\newblock {\em The Journal of Mathematical Neuroscience}, 2(1):9, 2012.
+
+\bibitem{erlhagen2006dynamic}
+W.~Erlhagen and E.~Bicho.
+\newblock The dynamic neural field approach to cognitive robotics.
+\newblock {\em Journal of neural engineering}, 3(3):R36, 2006.
+
+\bibitem{ermentrout2014spatiotemporal}
+G.~B. Ermentrout, S.~E. Folias, and Z.~P. Kilpatrick.
+\newblock Spatiotemporal pattern formation in neural fields with linear
+  adaptation.
+\newblock In {\em Neural Fields}, pages 119--151. Springer, 2014.
+
+\bibitem{folias2004breathing}
+S.~E. Folias and P.~C. Bressloff.
+\newblock Breathing pulses in an excitatory neural network.
+\newblock {\em SIAM Journal on Applied Dynamical Systems}, 3(3):378--407, 2004.
+
+\bibitem{giese2012dynamic}
+M.~A. Giese.
+\newblock {\em Dynamic neural field theory for motion perception}, volume 469.
+\newblock Springer Science \& Business Media, 2012.
+
+\bibitem{heath2002scientific}
+M.~T. Heath.
+\newblock {\em Scientific computing}.
+\newblock McGraw-Hill New York, 2002.
+
+\bibitem{hodgkin1952quantitative}
+A.~L. Hodgkin and A.~F. Huxley.
+\newblock A quantitative description of membrane current and its application to
+  conduction and excitation in nerve.
+\newblock {\em The Journal of physiology}, 117(4):500--544, 1952.
+
+\bibitem{kishimoto1979existence}
+K.~Kishimoto and S.-i. Amari.
+\newblock Existence and stability of local excitations in homogeneous neural
+  fields.
+\newblock {\em Journal of Mathematical Biology}, 7(4):303--318, 1979.
+
+\bibitem{laing2003pde}
+C.~R. Laing and W.~C. Troy.
+\newblock Pde methods for nonlocal models.
+\newblock {\em SIAM Journal on Applied Dynamical Systems}, 2(3):487--516, 2003.
+
+\bibitem{LaingCarloR.2002MBia}
+C.~R. Laing, W.~C. Troy, B.~Gutkin, and G.~B. Ermentrout.
+\newblock Multiple bumps in a neuronal model of working memory.
+\newblock {\em SIAM Journal on Applied Mathematics}, 63(1):62--97, August 2002.
+
+\bibitem{laingatwo}
+C.~R. Lainga and W.~C. Troyb.
+\newblock Two--bump solutions of amari--type models of working memory.
+
+\bibitem{liley2011mesoscopic}
+D.~T. Liley, B.~Foster, and I.~Bojak.
+\newblock A mesoscopic modelling approach to anaesthetic action on brain
+  electrical activity.
+\newblock In {\em Sleep and Anesthesia}, pages 139--166. Springer, 2011.
+
+\bibitem{lima2015numerical}
+P.~M. Lima and E.~Buckwar.
+\newblock Numerical solution of the neural field equation in the
+  two-dimensional case.
+\newblock {\em SIAM Journal on Scientific Computing}, 37(6):B962--B979, 2015.
+
+\bibitem{milton2013epilepsy}
+J.~Milton and P.~Jung.
+\newblock {\em Epilepsy as a dynamic disease}.
+\newblock Springer Science \& Business Media, 2013.
+
+\bibitem{owen2007bumps}
+M.~R. Owen, C.~R. Laing, and S.~Coombes.
+\newblock Bumps and rings in a two-dimensional neural field: splitting and
+  rotational instabilities.
+\newblock {\em New Journal of Physics}, 9(10):378, 2007.
+
+\bibitem{pinto2001spatially}
+D.~J. Pinto and G.~B. Ermentrout.
+\newblock Spatially structured activity in synaptically coupled neuronal
+  networks: I. traveling fronts and pulses.
+\newblock {\em SIAM journal on Applied Mathematics}, 62(1):206--225, 2001.
+
+\bibitem{potthast2010existence}
+R.~Potthast and P.~Beim~Graben.
+\newblock Existence and properties of solutions for neural field equations.
+\newblock {\em Mathematical Methods in the Applied Sciences}, 33(8):935--949,
+  2010.
+
+\bibitem{press2007numerical}
+W.~H. Press.
+\newblock {\em Numerical recipes 3rd edition: The art of scientific computing}.
+\newblock Cambridge university press, 2007.
+
+\bibitem{rankin2014continuation}
+J.~Rankin, D.~Avitabile, J.~Baladron, G.~Faye, and D.~J. Lloyd.
+\newblock Continuation of localized coherent structures in nonlocal neural
+  field equations.
+\newblock {\em SIAM Journal on Scientific Computing}, 36(1):B70--B93, 2014.
+
+\bibitem{coombes2012NeuralFields}
+R.~P. J.~W. Stephen~Coombes, Peter beim~Graben.
+\newblock {\em Neural Fields, Theory and Applications}, volume~1.
+\newblock Springer Science \& Business Media, 2014.
+
+\bibitem{CompNeuroSci}
+T.~P. Trappenberg.
+\newblock {\em Fundamentals of Computational Neuroscience}.
+\newblock Oxford University Press, second edition.
+
+\bibitem{visser2017standing}
+S.~Visser, R.~Nicks, O.~Faugeras, and S.~Coombes.
+\newblock Standing and travelling waves in a spherical brain model: The nunez
+  model revisited.
+\newblock {\em Physica D: Nonlinear Phenomena}, 349:27--45, 2017.
+
+\bibitem{wilson1972excitatory}
+H.~R. Wilson and J.~D. Cowan.
+\newblock Excitatory and inhibitory interactions in localized populations of
+  model neurons.
+\newblock {\em Biophysical journal}, 12(1):1--24, 1972.
+
+\bibitem{wilson1973mathematical}
+H.~R. Wilson and J.~D. Cowan.
+\newblock A mathematical theory of the functional dynamics of cortical and
+  thalamic nervous tissue.
+\newblock {\em Biological Cybernetics}, 13(2):55--80, 1973.
+
+\end{thebibliography}
